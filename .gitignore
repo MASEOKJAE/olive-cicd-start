@@ -40,4 +40,4 @@ out/
 .vscode/
 
 # 데이터베이스 디렉토리 제외
-# xinfra/local-container/data/
+xinfra/local-container/data/
