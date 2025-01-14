@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: mysql-pod
+  labels:
+    name: mysql
+spec:
+  volumes:
+    - name: mysql-persistent-storage
+      persistentVolumeClaim:
+        claimName: mysql-pv-claim
+  containers:
+  - name: mysql
+    image: mysql/mysql-server
+    envFrom:
+      - secretRef:
+          name: istory-db-secret
+      - configMapRef:
+          name: istory-db-config
+    volumeMounts:
+      - name: mysql-persistent-storage
+        mountPath: /var/lib/mysql
+    ports:
+      - containerPort: 3308
+        name: mysql
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
