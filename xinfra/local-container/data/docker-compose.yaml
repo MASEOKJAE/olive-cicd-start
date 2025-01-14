@@ -8,7 +8,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: admin123
       MYSQL_DATABASE: istory
-      MYSQL_USER: dangtong
+      MYSQL_USER: maasj                # 개인 아이디
       MYSQL_PASSWORD: admin123
     ports:
       - "3308:3306"

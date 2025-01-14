@@ -1,0 +1,14 @@
+name: istory ci/cd dev pipeline
+
+permissions:
+  contents: read
+  security-events: write  # CodeQL 결과를 업로드하기 위한 권한
+  actions: read
+
+on:
+  push:
+    branches: [ "develop"]
+jobs:
+  verify_pipeline:
+    environment: runner
+    runs-on: ubuntu-latest
